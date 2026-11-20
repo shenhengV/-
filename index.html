@@ -1,321 +1,1597 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#f3efe7">
-<meta name="description" content="友情里可以谈钱，但每一份付出都要被记账吗？测测你的价格敏感型朋友吸引指数。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="你有多容易吸引价格敏感型朋友？">
-<meta property="og:description" content="10道关系情境题，看看你的友情相处模式。">
-<title>价格敏感型朋友吸引指数｜关系观察室</title>
-<style>
-:root{
- --bg:#f3efe7;--paper:#fffdf8;--ink:#292820;--muted:#777367;--line:#ddd5c8;
- --accent:#a75d43;--accent-soft:#f4e8df;--olive:#697568;--gold:#bd9664;
- --serif:Georgia,"Songti SC","Noto Serif CJK SC","STSong",serif;
- --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65}
-button{font:inherit}button:focus-visible{outline:3px solid #c28c70;outline-offset:3px}
-.page{width:min(100% - 36px,760px);margin:auto}
-.masthead{height:66px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.14em;color:var(--muted)}
-.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:750;letter-spacing:.1em}
-.brand-mark{width:25px;height:25px;border:1px solid var(--accent);border-radius:50%;display:grid;place-items:center;color:var(--accent);font-family:var(--serif);font-size:15px}
-.issue{font-size:10px}
-.hero{padding:66px 0 50px}
-.eyebrow{font-size:10px;letter-spacing:.22em;color:var(--accent);font-weight:750}
-h1{font:500 clamp(39px,8vw,67px)/1.15 var(--serif);letter-spacing:-.045em;margin:20px 0 20px}
-h1 span{color:var(--accent)}
-.lede{max-width:540px;color:var(--muted);font-size:15px;margin:0}
-.meta{display:flex;gap:20px;flex-wrap:wrap;margin:27px 0 32px;color:var(--muted);font-size:11px}
-.meta span:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin:0 8px 1px 0}
-.intro{background:var(--paper);border:1px solid var(--line);padding:24px 26px;display:grid;grid-template-columns:1fr 76px;gap:20px;align-items:center}
-.intro p{margin:0;color:#625e54;font-size:14px}
-.intro strong{color:var(--ink)}
-.seal{height:72px;width:72px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--accent);font:12px/1.25 var(--serif);transform:rotate(-8deg)}
-.actions{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-top:27px}
-.btn{border:1px solid var(--ink);background:var(--ink);color:#fffdf8;padding:14px 22px;cursor:pointer;font-size:13px;letter-spacing:.04em;transition:.18s}
-.btn:hover{background:var(--accent);border-color:var(--accent)}
-.btn.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
-.btn.secondary:hover{background:var(--paper);border-color:var(--accent);color:var(--accent)}
-.btn:disabled{opacity:.35;cursor:not-allowed}
-.micro{font-size:11px;color:var(--muted)}
-.note{border-top:1px solid var(--line);padding:37px 0 42px}
-.note-label{font-size:10px;letter-spacing:.2em;color:var(--accent);font-weight:750}
-.note h2{font:500 27px var(--serif);margin:10px 0}
-.note p{font-size:13px;color:var(--muted);max-width:640px;margin:0}
-#quiz,#result{display:none;padding:48px 0 68px}
-.quiz-top{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:12px}
-.progress{height:3px;background:#e5ded2;margin-bottom:36px}
-.progress>div{height:100%;width:0;background:var(--accent);transition:width .25s}
-.q-kicker{font-size:10px;letter-spacing:.2em;color:var(--accent);font-weight:750}
-.question{font:500 clamp(24px,5vw,34px)/1.42 var(--serif);margin:14px 0 26px}
-.options{display:grid;gap:10px}
-.option{width:100%;display:flex;align-items:flex-start;gap:14px;text-align:left;background:rgba(255,253,248,.65);border:1px solid var(--line);padding:16px 17px;color:var(--ink);cursor:pointer;transition:.15s}
-.option:hover{border-color:var(--gold);background:var(--paper)}
-.option.selected{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 3px 0 var(--accent)}
-.letter{width:24px;height:24px;flex:0 0 24px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:10px;color:var(--muted)}
-.selected .letter{background:var(--accent);border-color:var(--accent);color:white}
-.option-text{font-size:13px;line-height:1.6}
-.quiz-controls{display:flex;justify-content:space-between;gap:12px;margin-top:27px}
-.result-head{background:var(--paper);border:1px solid var(--line);padding:clamp(23px,5vw,40px);position:relative;overflow:hidden}
-.result-head:after{content:"";position:absolute;width:230px;height:230px;border:1px solid #ead8c9;border-radius:50%;right:-105px;top:-110px;box-shadow:0 0 0 22px #f4e8df66,0 0 0 48px #f4e8df44}
-.result-kicker{font-size:10px;letter-spacing:.2em;color:var(--accent);font-weight:750}
-.score-line{display:flex;align-items:flex-end;gap:8px;margin:14px 0 5px;position:relative;z-index:1}
-.score{font:clamp(78px,17vw,112px)/.95 var(--serif);letter-spacing:-.07em;color:var(--accent)}
-.outof{font:23px var(--serif);color:var(--muted);padding-bottom:10px}
-.result-name{font:500 29px var(--serif);margin:16px 0 8px;position:relative;z-index:1}
-.result-desc{font-size:13px;color:#625e54;max-width:560px;margin:0;position:relative;z-index:1}
-.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:13px}
-.panel{border:1px solid var(--line);padding:20px;background:#fffdf880}
-.panel h3{font-size:11px;color:var(--accent);letter-spacing:.1em;margin:0 0 10px}
-.panel ul{margin:0;padding-left:17px}
-.panel li{font-size:12px;color:#625e54;margin:5px 0}
-.quote{font:21px/1.5 var(--serif);padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:22px 0}
-.share-card-wrap{margin-top:25px}
-.share-card-label{font-size:10px;color:var(--muted);letter-spacing:.15em;margin-bottom:10px}
-#shareCanvas{display:block;width:min(100%,420px);height:auto;border:1px solid var(--line);background:var(--paper)}
-.share-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}
-.disclaimer{font-size:10px;color:var(--muted);margin-top:18px}
-.footer{border-top:1px solid var(--line);padding:23px 0 32px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}
-.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:white;padding:10px 16px;font-size:12px;pointer-events:none;transition:.2s}
-.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:560px){.page{width:calc(100% - 28px)}.hero{padding:51px 0 38px}.intro{grid-template-columns:1fr;padding:19px}.seal{display:none}.result-grid{grid-template-columns:1fr}.masthead{height:58px}.btn{padding:13px 16px}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>关系观察室 · FIELD NOTE 001｜价格敏感型朋友吸引指数</title>
+  <style>
+    :root {
+      --bg-paper: #f6f1e7;
+      --bg-card: #fbf8f2;
+      --bg-subtle: #ede5d6;
+      --ink-primary: #181715;
+      --ink-secondary: #4e4a43;
+      --ink-muted: #7c756b;
+      --accent-brick: #b83b2a;
+      --accent-brick-dark: #942b1d;
+      --accent-cobalt: #234b7a;
+      --accent-lime: #7c9a2c;
+      --rule-color: #2b2823;
+      --rule-light: #d6cec0;
+      --font-serif: "Songti SC", "Noto Serif SC", "STSong", "PMingLiU", Georgia, serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-paper);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* 轻微纸张纹理与编辑网格感 */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(24, 23, 21, 0.045) 1px, transparent 0);
+      background-size: 20px 20px;
+      z-index: 0;
+    }
+
+    .app-shell {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 20px 18px 64px;
+    }
+
+    /* 顶部观察室刊头 */
+    .masthead {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--rule-color);
+      margin-bottom: 28px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .brand-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .brand-cn {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 0.14em;
+      text-transform: none;
+      color: var(--ink-primary);
+    }
+
+    .brand-en {
+      color: var(--ink-muted);
+      font-size: 11px;
+    }
+
+    .issue-tag {
+      color: var(--accent-brick);
+      font-weight: 600;
+    }
+
+    /* 视图切换控制 */
+    .view {
+      display: none;
+      animation: fadeSlideIn 0.35s ease;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 首页：非对称编辑排版 */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding: 8px 0 16px;
+    }
+
+    .kicker-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-cobalt);
+    }
+
+    .kicker-pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid var(--accent-cobalt);
+      color: var(--accent-cobalt);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 7vw, 48px);
+      line-height: 1.18;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: var(--ink-primary);
+      word-break: break-word;
+    }
+
+    .hero-title em {
+      font-style: normal;
+      color: var(--accent-brick);
+      border-bottom: 3px solid var(--accent-brick);
+      padding-bottom: 2px;
+    }
+
+    .hero-sub-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule-color);
+    }
+
+    @media (min-width: 640px) {
+      .hero-sub-layout {
+        grid-template-columns: 1.25fr 0.75fr;
+        align-items: end;
+        gap: 28px;
+      }
+    }
+
+    .poetic-lead {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--ink-primary);
+      margin: 0;
+    }
+
+    .poetic-lead span.line-second {
+      display: block;
+      color: var(--ink-secondary);
+    }
+
+    .margin-note {
+      border-left: 3px solid var(--accent-lime);
+      padding: 4px 0 4px 14px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--ink-secondary);
+    }
+
+    .margin-note strong {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent-lime);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .cta-strip {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px dashed var(--rule-color);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      appearance: none;
+      border: 2px solid var(--ink-primary);
+      background-color: var(--accent-brick);
+      color: #fffdf9;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 14px 30px;
+      cursor: pointer;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-brick-dark);
+      transform: translate(-2px, -2px);
+    }
+
+    .btn-primary:active {
+      transform: translate(0, 0);
+    }
+
+    .meta-specs {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+
+    /* 答题页：进度与题干 */
+    .quiz-top {
+      margin-bottom: 24px;
+    }
+
+    .quiz-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .btn-back {
+      appearance: none;
+      background: transparent;
+      border: 1px solid var(--rule-color);
+      color: var(--ink-primary);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 7px 12px;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+
+    .btn-back:hover:not(:disabled) {
+      background-color: var(--bg-subtle);
+    }
+
+    .btn-back:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .progress-counter {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink-primary);
+    }
+
+    .progress-counter .current-num {
+      color: var(--accent-brick);
+      font-size: 18px;
+    }
+
+    /* 定制刻度进度条 */
+    .ruler-track {
+      position: relative;
+      height: 14px;
+      border-top: 1px solid var(--rule-color);
+      border-bottom: 1px solid var(--rule-color);
+      background: repeating-linear-gradient(
+        to right,
+        var(--rule-light) 0,
+        var(--rule-light) 1px,
+        transparent 1px,
+        transparent 10%
+      );
+    }
+
+    .ruler-fill {
+      height: 100%;
+      width: 0%;
+      background-color: var(--accent-brick);
+      transition: width 0.32s ease;
+    }
+
+    .question-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+    }
+
+    .q-index-badge {
+      background-color: var(--ink-primary);
+      color: var(--bg-paper);
+      padding: 2px 8px;
+      font-weight: 700;
+    }
+
+    .q-dimension {
+      color: var(--accent-cobalt);
+      font-weight: 600;
+    }
+
+    .question-stem {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 4.2vw, 26px);
+      line-height: 1.5;
+      font-weight: 700;
+      margin: 0 0 22px;
+      color: var(--ink-primary);
+    }
+
+    .options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .option-btn {
+      appearance: none;
+      width: 100%;
+      text-align: left;
+      background-color: var(--bg-card);
+      border: 1px solid var(--rule-color);
+      padding: 16px 18px;
+      cursor: pointer;
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: start;
+      gap: 12px;
+      transition: transform 0.14s ease, border-color 0.14s ease, background-color 0.14s ease;
+      color: var(--ink-primary);
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: var(--accent-brick);
+      transform: translateX(3px);
+    }
+
+    .option-btn.selected {
+      background-color: var(--ink-primary);
+      color: var(--bg-paper);
+      border-color: var(--ink-primary);
+    }
+
+    .option-key {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border: 1px solid currentColor;
+      margin-top: 1px;
+    }
+
+    .option-text {
+      font-size: 15.5px;
+      line-height: 1.6;
+    }
+
+    .transition-hint {
+      margin-top: 16px;
+      min-height: 22px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent-brick);
+    }
+
+    /* 结果页：观察档案报告 */
+    .result-header-block {
+      border: 2px solid var(--rule-color);
+      background-color: var(--bg-card);
+      padding: 22px 20px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 640px) {
+      .result-header-block {
+        padding: 28px 30px;
+      }
+    }
+
+    .result-top-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-muted);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--rule-light);
+      margin-bottom: 18px;
+    }
+
+    .score-banner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      align-items: baseline;
+      margin-bottom: 16px;
+    }
+
+    @media (min-width: 580px) {
+      .score-banner {
+        grid-template-columns: auto 1fr;
+        gap: 24px;
+      }
+    }
+
+    .score-figure {
+      font-family: var(--font-mono);
+      line-height: 1;
+    }
+
+    .score-num {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--accent-brick);
+    }
+
+    .score-denom {
+      font-size: 15px;
+      color: var(--ink-secondary);
+      margin-left: 4px;
+    }
+
+    .score-raw-note {
+      display: block;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--ink-muted);
+    }
+
+    .archetype-title {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 5vw, 34px);
+      font-weight: 700;
+      margin: 0 0 6px;
+      color: var(--ink-primary);
+    }
+
+    .archetype-tagline {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      color: var(--accent-cobalt);
+      margin: 0;
+    }
+
+    .calibration-box {
+      margin-top: 16px;
+      padding: 12px 14px;
+      background-color: var(--bg-subtle);
+      border-left: 3px solid var(--ink-primary);
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-secondary);
+    }
+
+    .calibration-box strong {
+      color: var(--ink-primary);
+    }
+
+    .report-section {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule-light);
+    }
+
+    .report-section h3 {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      color: var(--ink-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tag-dot {
+      width: 8px;
+      height: 8px;
+      display: inline-block;
+      background-color: var(--accent-brick);
+    }
+
+    .tag-dot.lime {
+      background-color: var(--accent-lime);
+    }
+
+    .tag-dot.cobalt {
+      background-color: var(--accent-cobalt);
+    }
+
+    .report-section p {
+      margin: 0;
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: var(--ink-primary);
+    }
+
+    /* 操作工具栏 */
+    .actions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    @media (min-width: 600px) {
+      .actions-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .btn-secondary {
+      appearance: none;
+      background-color: var(--bg-card);
+      border: 1px solid var(--rule-color);
+      color: var(--ink-primary);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+      text-align: center;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-subtle);
+      border-color: var(--ink-primary);
+    }
+
+    .btn-secondary.highlight {
+      background-color: var(--ink-primary);
+      color: var(--bg-paper);
+    }
+
+    .btn-secondary.highlight:hover {
+      background-color: #2f2d28;
+    }
+
+    .feedback-banner {
+      margin-top: 12px;
+      min-height: 22px;
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--accent-cobalt);
+    }
+
+    /* 分享海报预览区 */
+    .poster-preview-wrap {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px dashed var(--rule-color);
+    }
+
+    .poster-preview-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-secondary);
+    }
+
+    .canvas-frame {
+      max-width: 390px;
+      margin: 0 auto;
+      border: 1px solid var(--rule-color);
+      background-color: var(--bg-card);
+    }
+
+    #shareCanvas {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .site-footer {
+      margin-top: 44px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule-light);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.65;
+      color: var(--ink-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+  </style>
 </head>
 <body>
-<div class="page">
-<header class="masthead">
- <div class="brand"><span class="brand-mark">间</span> 关系观察室</div>
- <div class="issue">FIELD NOTES · NO. 001</div>
-</header>
-<main>
-<section class="hero" id="landing">
- <div class="eyebrow">A LITTLE TEST ABOUT FRIENDSHIP</div>
- <h1>你有多容易吸引<br><span>价格敏感型朋友？</span></h1>
- <p class="lede">一顿饭、一份礼物、一次帮忙……友情里那些说不清的人情账，你通常怎么处理？</p>
- <div class="meta"><span>约 3 分钟</span><span>10 道情境题</span><span>关系互动画像</span></div>
- <div class="intro">
-  <p><strong>朋友之间当然可以谈钱，也应该有合理的付出与回报。</strong><br>但如果每一份付出都要被记住，每一笔人情都等待偿还，友情就难免变成一本永远算不清的账。来看看，你的相处方式是否容易让自己陷入这样的关系。</p>
-  <div class="seal">FRIEND<br>SHIP<br>NOTES</div>
- </div>
- <div class="actions"><button class="btn" id="startBtn">开始测试　↗</button><span class="micro">没有标准答案，按真实的第一反应选择即可。</span></div>
-</section>
-<section class="note" id="about">
- <div class="note-label">BEFORE YOU START</div>
- <h2>这不是一场友情审判。</h2>
- <p>我们不判断谁该付钱、谁该回礼，也不把正常的边界和公平需求当成问题。这个测试关注的是：当关系出现付出不对等时，你通常如何回应，以及你是否容易承担超出自己意愿的那一部分。</p>
-</section>
-<section id="quiz">
- <div class="quiz-top"><span id="stepLabel">QUESTION 01 / 10</span><span id="answeredLabel">已完成 0 / 10</span></div>
- <div class="progress"><div id="progressFill"></div></div>
- <div class="q-kicker" id="qNumber">01 — YOUR INSTINCT</div>
- <h2 class="question" id="questionText"></h2>
- <div class="options" id="options"></div>
- <div class="quiz-controls"><button class="btn secondary" id="prevBtn">← 上一题</button><button class="btn" id="nextBtn" disabled>下一题 →</button></div>
-</section>
-<section id="result">
- <div class="result-head">
-  <div class="result-kicker">YOUR RELATIONSHIP PATTERN INDEX</div>
-  <div class="score-line"><div class="score" id="scoreValue">0.0</div><div class="outof">/ 10</div></div>
-  <div class="result-name" id="resultName"></div>
-  <p class="result-desc" id="resultDesc"></p>
- </div>
- <div class="result-grid">
-  <div class="panel"><h3>你可能习惯这样相处</h3><ul id="traits"></ul></div>
-  <div class="panel"><h3>可以留意的关系信号</h3><ul id="signals"></ul></div>
- </div>
- <div class="quote" id="resultQuote"></div>
- <div class="share-card-wrap">
-  <div class="share-card-label">YOUR SHARE CARD · 长按或保存图片分享</div>
-  <canvas id="shareCanvas" width="840" height="1050" aria-label="测试结果分享卡片"></canvas>
- </div>
- <div class="share-actions">
-  <button class="btn" id="downloadBtn">保存结果图片 ↓</button>
-  <button class="btn secondary" id="shareBtn">分享结果 ↗</button>
-  <button class="btn secondary" id="copyBtn">复制结果文案</button>
-  <button class="btn secondary" id="againBtn">再测一次</button>
- </div>
- <p class="disclaimer">说明：这是基于情境选择设计的趣味自测。指数反映你在这些关系情境中的互动倾向，不代表真实吸引概率，也不是心理诊断。合理结算、拒绝不合理要求、在意公平，都不等于“价格敏感”。</p>
-</section>
-</main>
-<footer class="footer"><span>关系观察室 · 用一点好奇心，观察人与人的关系</span><span>把情分留给情分，把边界留给自己。</span></footer>
-</div>
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script>
-/*
- * 可选统计接入：
- * 1. 先创建 GA4 / Plausible 等统计项目；
- * 2. 按服务商说明安装统计脚本；
- * 3. 本页面会向 gtag（若存在）和 dataLayer 推送匿名事件：
- *    test_view, test_start, question_answer, test_complete, result_share, result_download, result_copy
- * 当前没有配置第三方统计 ID，因此不会自动向任何分析服务发送数据。
- */
-window.dataLayer = window.dataLayer || [];
-function track(name,params={}) {
- const payload={event:name,...params};
- window.dataLayer.push(payload);
- if(typeof window.gtag==="function") window.gtag("event",name,params);
-}
-track("test_view",{test_id:"price_sensitive_friend_001"});
+  <div class="app-shell">
+    <header class="masthead">
+      <div class="brand-group">
+        <span class="brand-cn">关系观察室</span>
+        <span class="brand-en">RELATIONSHIP OBSERVATORY</span>
+      </div>
+      <span class="issue-tag">FIELD NOTE 001</span>
+    </header>
 
-const questions=[
- {q:"朋友临时拜托你帮忙做一件比较耗时的事，但没有提报酬。你通常会？",a:[
-  ["只要能力范围内、自己也愿意，就会帮忙",0],
-  ["会帮忙，但希望对方能意识到这份付出",1],
-  ["先衡量时间和精力，再决定是否答应",0],
-  ["不太好意思拒绝，即使已经有点勉强",3]]},
- {q:"朋友经常向你倾诉烦恼，但很少主动关心你的生活。你会？",a:[
-  ["如果愿意听就听，不想听时也会说出来",0],
-  ["会继续关心，但也希望对方能回应我",1],
-  ["慢慢减少投入，避免长期失衡",0],
-  ["即使觉得累，也常常先接住对方的情绪",3]]},
- {q:"你和朋友约好见面，对方临时改时间，已经是第三次了。你会？",a:[
-  ["直接告诉对方这让我不舒服，请他尊重约定",0],
-  ["这次先算了，但会减少之后的主动安排",1],
-  ["会问清原因，再决定能不能接受",0],
-  ["嘴上说没关系，心里不舒服却不太会表达",3]]},
- {q:"朋友曾经帮过你一个忙，后来发生争执时，对方把这件事拿出来说。你会？",a:[
-  ["感谢对方曾经帮忙，但认为不该用来抵消当前问题",0],
-  ["会觉得不舒服，也会想想自己是否忽略过对方",1],
-  ["愿意把事情说开，但不接受用旧人情施压",0],
-  ["容易因为这份旧人情而觉得自己理亏",3]]},
- {q:"你帮朋友搬家，花了大半天时间。后来发现对方没有任何表示。你会？",a:[
-  ["如果当时是自愿帮忙，就不会默认对方欠我",0],
-  ["会有一点失落，希望自己的付出被看见",1],
-  ["下次会根据自己的时间和意愿决定帮到什么程度",0],
-  ["会觉得不好意思开口，但心里一直记着",3]]},
- {q:"朋友送了你一份价值不低的礼物，但你暂时没能力回赠同等价值的东西。你会？",a:[
-  ["坦然接受，心意不需要立刻等价偿还",0],
-  ["表达感谢，以后有合适机会再回馈",0],
-  ["会有些压力，担心对方觉得我不够重视这段关系",2],
-  ["会尽快准备一份差不多价值的礼物，才能安心",2]]},
- {q:"你和朋友一起旅行，对方个人原因临时改变行程，导致你多花了钱。你认为？",a:[
-  ["先沟通实际情况，该谁承担就合理分担",0],
-  ["如果是对方造成的额外费用，应该明确补偿",0],
-  ["怕谈钱伤感情，可能先自己承担再说",3],
-  ["会先把费用和责任列清楚，避免争议",1]]},
- {q:"当你发现一段友情长期只有自己主动联系、安排活动和提供帮助，你会？",a:[
-  ["减少主动，观察彼此是否还有维系关系的意愿",0],
-  ["找机会沟通自己的感受",0],
-  ["继续维持一阵子，担心自己不主动关系就散了",3],
-  ["重新评估投入程度，并调整相处方式",1]]},
- {q:"朋友提出一个你不太愿意答应的请求，但你知道拒绝后对方可能会失望。你会？",a:[
-  ["礼貌拒绝，不把对方的失望当成自己的责任",0],
-  ["解释原因，看看能不能找到双方都能接受的办法",1],
-  ["通常会先答应，之后再想办法消化自己的不情愿",3],
-  ["视事情大小决定，不会因为怕尴尬就答应",0]]},
- {q:"朋友说“我以前为你做过那么多，这次你就不能帮我吗？”你第一反应更接近？",a:[
-  ["过去的帮助值得感谢，但不代表我必须答应每个要求",0],
-  ["会先确认这次请求是否合理、自己是否有余力",0],
-  ["容易感到亏欠，觉得拒绝好像不够朋友",3],
-  ["会想起彼此过去的付出，试图判断谁欠谁更多",2]]}
-];
+    <!-- 首页 -->
+    <section id="view-home" class="view active" aria-label="测试首页">
+      <div class="hero-grid">
+        <div class="kicker-row">
+          <span class="kicker-pill">观察手记 · 友情与人情往来</span>
+          <span>10 道生活情境 · 约 2 分钟</span>
+        </div>
 
-const profiles=[
- {min:0,max:2.4,name:"边界清醒型",desc:"你通常能把情分和义务分开。愿意付出时不急着索取回报，不愿意时也比较能够表达。你未必不会遇到爱记账的人，只是较少在不情愿的情况下持续承担。",traits:["愿意帮助，但会考虑自己的实际意愿","能够区分感谢、回馈与被要求偿还","遇到不舒服的互动，通常愿意调整距离"],signals:["留意对方是否把自愿帮助说成理所当然","不必为了证明自己够朋友而过度付出"],quote:"友情可以有来有往，但不必每一步都走在账本上。"},
- {min:2.5,max:4.4,name:"温和有界型",desc:"你重视关系里的体谅，也有一定的自我保护意识。偶尔会顾及情面多做一点，但通常能在察觉失衡后调整。",traits:["愿意体谅朋友的难处","会期待回应，但不强求每次等价","有时先让一步，之后仍能重新协商"],signals:["别让一次次“没关系”变成默认许可","不舒服时尽量在当下表达，而不是独自消化"],quote:"体谅别人很好，前提是你也在自己的体谅范围内。"},
- {min:4.5,max:6.4,name:"情分优先型",desc:"你容易先考虑关系能不能继续舒服，再考虑自己的感受。你并不是没有边界，只是有时会把表达边界的时机一拖再拖。",traits:["不太愿意让朋友难堪","可能会先答应，再处理自己的为难","对关系中的冷淡或不对等比较敏感"],signals:["区分“我愿意帮”与“我不好意思拒绝”","留意对方是否持续把你的退让当作理所当然"],quote:"真正的情分，不应该靠一个人不断退让来维持。"},
- {min:6.5,max:8.4,name:"关系承接型",desc:"你可能习惯替关系兜底：怕对方失望、怕气氛变僵，也怕拒绝之后关系出现裂痕。这样的体贴值得珍惜，但也容易让你承担过多。",traits:["常常先处理别人的需求，再处理自己的感受","不舒服时容易先忍耐，之后反复回想","可能把维持关系的责任揽到自己身上"],signals:["拒绝一件事，不等于否定一个人","观察对方能否尊重你的时间、精力和选择"],quote:"你可以珍惜一段关系，但不必独自负责它的全部重量。"},
- {min:8.5,max:10,name:"高承接倾向型",desc:"在这些情境里，你展现出较强的关系承接倾向。你可能很容易为了避免冲突而答应、补偿或忍耐。值得关注的不是你太好，而是你的意愿有没有被同样认真地对待。",traits:["容易因为亏欠感而接受额外要求","可能把对方的失望理解成自己的责任","倾向于压下不满，以换取关系暂时平静"],signals:["给答应请求留一点思考时间","把“我不愿意”视为一个足够正当的理由","如果关系长期只靠你维持，可以重新评估投入"],quote:"善意不是无限额度，关系也不该只有你一个人在续费。"}
-];
+        <h1 class="hero-title">
+          你有多容易吸引<br /><em>价格敏感型朋友</em>？
+        </h1>
 
-let current=0,answers=Array(questions.length).fill(null),resultData=null;
-const $=id=>document.getElementById(id);
-function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1900)}
-function start(){
- $("landing").style.display="none";$("about").style.display="none";$("quiz").style.display="block";
- track("test_start",{test_id:"price_sensitive_friend_001"});renderQuestion();window.scrollTo({top:0,behavior:"smooth"});
-}
-function renderQuestion(){
- const q=questions[current];
- $("stepLabel").textContent=`QUESTION ${String(current+1).padStart(2,"0")} / ${questions.length}`;
- $("answeredLabel").textContent=`已完成 ${answers.filter(x=>x!==null).length} / ${questions.length}`;
- $("progressFill").style.width=`${(current/questions.length)*100}%`;
- $("qNumber").textContent=`${String(current+1).padStart(2,"0")} — YOUR INSTINCT`;
- $("questionText").textContent=q.q;$("options").innerHTML="";
- q.a.forEach((item,i)=>{
-  const b=document.createElement("button");b.type="button";b.className="option"+(answers[current]===i?" selected":"");
-  const letter=document.createElement("span");letter.className="letter";letter.textContent=String.fromCharCode(65+i);
-  const txt=document.createElement("span");txt.className="option-text";txt.textContent=item[0];
-  b.append(letter,txt);b.addEventListener("click",()=>{answers[current]=i;track("question_answer",{question_number:current+1,answer_index:i});renderQuestion();});
-  $("options").appendChild(b);
- });
- $("prevBtn").disabled=current===0;$("nextBtn").disabled=answers[current]===null;
- $("nextBtn").textContent=current===questions.length-1?"查看测试结果 →":"下一题 →";
-}
-function next(){if(answers[current]===null)return;if(current<questions.length-1){current++;renderQuestion()}else showResult()}
-function prev(){if(current>0){current--;renderQuestion()}}
-function showResult(){
- const max=questions.reduce((s,q)=>s+Math.max(...q.a.map(a=>a[1])),0);
- const raw=answers.reduce((s,a,i)=>s+questions[i].a[a][1],0);
- const score=Math.round(raw/max*100)/10;
- const profile=profiles.find(p=>score>=p.min&&score<=p.max)||profiles[profiles.length-1];
- resultData={score,profile};
- $("quiz").style.display="none";$("result").style.display="block";
- $("scoreValue").textContent=score.toFixed(1);$("resultName").textContent=profile.name;$("resultDesc").textContent=profile.desc;
- $("traits").innerHTML=profile.traits.map(x=>`<li>${esc(x)}</li>`).join("");
- $("signals").innerHTML=profile.signals.map(x=>`<li>${esc(x)}</li>`).join("");
- $("resultQuote").textContent="“"+profile.quote+"”";
- drawShareCard();track("test_complete",{test_id:"price_sensitive_friend_001",score_band:band(score),profile:profile.name});
- window.scrollTo({top:0,behavior:"smooth"});
-}
-function band(s){return s<2.5?"0-2.4":s<4.5?"2.5-4.4":s<6.5?"4.5-6.4":s<8.5?"6.5-8.4":"8.5-10"}
-function esc(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
-function drawShareCard(){
- const c=$("shareCanvas"),ctx=c.getContext("2d"),{score,profile}=resultData;
- ctx.fillStyle="#f3efe7";ctx.fillRect(0,0,c.width,c.height);
- ctx.strokeStyle="#ddd5c8";ctx.lineWidth=2;ctx.strokeRect(34,34,c.width-68,c.height-68);
- ctx.fillStyle="#292820";ctx.font="bold 22px sans-serif";ctx.fillText("关系观察室",70,100);
- ctx.fillStyle="#a75d43";ctx.font="18px sans-serif";ctx.fillText("FRIENDSHIP FIELD NOTES  /  NO.001",70,145);
- ctx.strokeStyle="#ddd5c8";ctx.beginPath();ctx.moveTo(70,180);ctx.lineTo(770,180);ctx.stroke();
- ctx.fillStyle="#a75d43";ctx.font="bold 19px sans-serif";ctx.fillText("我的价格敏感型朋友吸引指数",70,250);
- ctx.fillStyle="#a75d43";ctx.font="150px Georgia,serif";ctx.fillText(score.toFixed(1),62,435);
- ctx.fillStyle="#777367";ctx.font="30px Georgia,serif";ctx.fillText("/ 10",390,430);
- ctx.fillStyle="#292820";ctx.font="bold 42px sans-serif";ctx.fillText(profile.name,70,535);
- wrapText(ctx,profile.desc,70,600,680,34,"24px sans-serif","#625e54",4);
- ctx.strokeStyle="#ddd5c8";ctx.beginPath();ctx.moveTo(70,820);ctx.lineTo(770,820);ctx.stroke();
- wrapText(ctx,"“"+profile.quote+"”",70,875,680,40,"italic 27px Georgia,serif","#292820",2);
- ctx.fillStyle="#777367";ctx.font="18px sans-serif";ctx.fillText("趣味自测 · 非心理诊断 · 扫描/访问原链接再测一次",70,980);
-}
-function wrapText(ctx,text,x,y,maxWidth,lineHeight,font,color,maxLines=5){
- ctx.font=font;ctx.fillStyle=color;let line="",lines=0;
- for(const ch of text){const test=line+ch;if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,y+lines*lineHeight);line=ch;lines++;if(lines>=maxLines)return;}else line=test;}
- if(line&&lines<maxLines)ctx.fillText(line,x,y+lines*lineHeight);
-}
-function resultCopy(){return `我的「价格敏感型朋友吸引指数」是 ${resultData.score.toFixed(1)}/10，关系画像：${resultData.profile.name}。\n${resultData.profile.desc}\n你也来测测：${location.href}`}
-async function copyResult(){
- try{await navigator.clipboard.writeText(resultCopy());toast("结果文案已复制");track("result_copy",{profile:resultData.profile.name})}
- catch(e){toast("复制失败，请尝试分享按钮")}
-}
-function downloadCard(){
- const a=document.createElement("a");a.download="关系观察室-价格敏感型朋友测试结果.png";a.href=$("shareCanvas").toDataURL("image/png");a.click();
- track("result_download",{profile:resultData.profile.name});toast("结果图片已生成");
-}
-async function shareResult(){
- const canvas=$("shareCanvas");
- try{
-  if(navigator.canShare&&navigator.share){
-   const blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/png"));
-   const file=new File([blob],"relationship-result.png",{type:"image/png"});
-   if(navigator.canShare({files:[file]})){await navigator.share({title:"我的关系互动画像",text:"来测测你的价格敏感型朋友吸引指数",files:[file]});}
-   else await navigator.share({title:"我的关系互动画像",text:resultCopy(),url:location.href});
-  }else{await navigator.clipboard.writeText(resultCopy());toast("分享文案已复制，去社交平台发布吧")}
-  track("result_share",{profile:resultData.profile.name});
- }catch(e){if(e.name!=="AbortError")toast("分享暂不可用，可以保存图片后手动分享")}
-}
-function again(){
- current=0;answers=Array(questions.length).fill(null);resultData=null;
- $("result").style.display="none";$("landing").style.display="block";$("about").style.display="block";
- window.scrollTo({top:0,behavior:"smooth"});
-}
-$("startBtn").addEventListener("click",start);$("nextBtn").addEventListener("click",next);$("prevBtn").addEventListener("click",prev);
-$("downloadBtn").addEventListener("click",downloadCard);$("shareBtn").addEventListener("click",shareResult);
-$("copyBtn").addEventListener("click",copyResult);$("againBtn").addEventListener("click",again);
-</script>
+        <div class="hero-sub-layout">
+          <p class="poetic-lead">
+            “有些人记得你说过的每句话。
+            <span class="line-second">有些人记得你欠他的每一笔。”</span>
+          </p>
+
+          <aside class="margin-note">
+            <strong>NOTE / 观察视角</strong>
+            借《后会友期》引发的人情讨论，观察你在边界、亏欠感与互惠往来中的真实反应。
+          </aside>
+        </div>
+
+        <div class="cta-strip">
+          <button id="btnStart" type="button" class="btn-primary">
+            <span>进入观察</span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <span class="meta-specs">0—10 分指数 · 无需登录 · 本地即时生成</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 答题页 -->
+    <section id="view-quiz" class="view" aria-label="情境测试">
+      <div class="quiz-top">
+        <div class="quiz-nav-row">
+          <button id="btnPrev" type="button" class="btn-back" disabled>← 上一题</button>
+          <div class="progress-counter">
+            <span id="currentQNum" class="current-num">01</span>
+            <span>/</span>
+            <span id="totalQNum">10</span>
+          </div>
+        </div>
+        <div class="ruler-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+          <div id="progressFill" class="ruler-fill"></div>
+        </div>
+      </div>
+
+      <article id="questionCard">
+        <div class="question-meta">
+          <span id="qBadge" class="q-index-badge">OBS-01</span>
+          <span id="qDimension" class="q-dimension">维度</span>
+        </div>
+        <h2 id="qStem" class="question-stem">题干加载中...</h2>
+        <div id="optionsContainer" class="options-list"></div>
+        <div id="transitionHint" class="transition-hint" aria-live="polite"></div>
+      </article>
+    </section>
+
+    <!-- 结果页 -->
+    <section id="view-result" class="view" aria-label="观察结果">
+      <div class="result-header-block">
+        <div class="result-top-meta">
+          <span>关系观察室 / FIELD NOTE 001</span>
+          <span>观察档案已生成</span>
+        </div>
+
+        <div class="score-banner">
+          <div class="score-figure">
+            <span id="resultScoreIndex" class="score-num">0.0</span>
+            <span class="score-denom">/ 10 分</span>
+            <span id="resultRawDetail" class="score-raw-note">原始得分 0 / 20</span>
+          </div>
+          <div>
+            <h2 id="resultTitle" class="archetype-title">画像名称</h2>
+            <p id="resultTagline" class="archetype-tagline">一句话总结</p>
+          </div>
+        </div>
+
+        <div class="calibration-box">
+          <strong>逻辑说明：</strong>本分数（0—10 分）反映的是你在面对人情压力、亏欠感与边界协商时倾向于“承接与回应”的程度，衡量的是<strong>人情记账式关系的承接倾向</strong>，并不代表统计学上的吸引概率，也不意味着你一定会遇到特定类型的人。
+        </div>
+      </div>
+
+      <div class="report-section">
+        <h3><span class="tag-dot"></span>整体观察分析</h3>
+        <p id="resultAnalysis"></p>
+      </div>
+
+      <div class="report-section">
+        <h3><span class="tag-dot lime"></span>你在关系中的优势</h3>
+        <p id="resultStrength"></p>
+      </div>
+
+      <div class="report-section">
+        <h3><span class="tag-dot cobalt"></span>你可能忽略的细节</h3>
+        <p id="resultBlindspot"></p>
+      </div>
+
+      <div class="report-section">
+        <h3><span class="tag-dot"></span>容易遇到的关系困境</h3>
+        <p id="resultDilemma"></p>
+      </div>
+
+      <div class="report-section">
+        <h3><span class="tag-dot lime"></span>给你的自我观察建议</h3>
+        <p id="resultTip"></p>
+      </div>
+
+      <div class="actions-grid">
+        <button id="btnCopy" type="button" class="btn-secondary highlight">复制结果文案</button>
+        <button id="btnShare" type="button" class="btn-secondary">分享结果</button>
+        <button id="btnDownloadImg" type="button" class="btn-secondary">保存结果图片</button>
+        <button id="btnRestart" type="button" class="btn-secondary">重新测试</button>
+      </div>
+
+      <div id="actionFeedback" class="feedback-banner" aria-live="polite"></div>
+
+      <div class="poster-preview-wrap">
+        <div class="poster-preview-header">
+          <span>观察分享卡片预览（可长按保存或点击上方按钮下载 PNG）</span>
+          <span>FIELD NOTE CARD</span>
+        </div>
+        <div class="canvas-frame">
+          <canvas id="shareCanvas" width="780" height="1040"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>关系观察室 · 轻心理学与日常关系观察</span>
+      <span>仅供自我观察与交流讨论，不构成心理咨询或专业评估</span>
+    </footer>
+  </div>
+
+  <script>
+    /**
+     * 1. 测试题目与选项权重配置（每题 0 / 1 / 2 分，便于独立调整）
+     */
+    const QUESTIONS = [
+      {
+        id: "Q01",
+        dimension: "亏欠感处理",
+        stem: "朋友趁你忙乱时帮你把大件行李搬上了楼，事后连声说“顺手的事，别客气”。接下来几天你的反应更接近哪一种？",
+        options: [
+          {
+            key: "A",
+            text: "心里记着这份好，等下次合适时机自然回请或帮衬，不会觉得欠了紧迫的债",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "嘴上说下次请吃饭，心里有点惦记，怕自己忘了显得敷衍",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "总觉得这份“顺手”很重，对方一提新要求就很难拒绝，怕显得自己没良心",
+            score: 2
+          }
+        ]
+      },
+      {
+        id: "Q02",
+        dimension: "拒绝与协商",
+        stem: "几位朋友约去一家人均消费明显超出你本月预算的餐厅，大家都在群里兴奋讨论菜品。你通常会怎么做？",
+        options: [
+          {
+            key: "A",
+            text: "坦率说明最近预算紧张，提议换一家或这次先不参与，下次再约",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "先看看能不能点便宜点的菜，实在不行再找个委婉理由推掉",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "咬牙跟着去，心里算着这顿花了多少，吃完却不好意思说自己肉疼",
+            score: 2
+          }
+        ]
+      },
+      {
+        id: "Q03",
+        dimension: "隐性人情债敏感度",
+        stem: "聊天时，一位朋友顺口提到：“当初你刚搬家那会儿，我可没少帮你跑前跑后。”你第一反应更接近？",
+        options: [
+          {
+            key: "A",
+            text: "点头认可对方的帮忙，但如果对方借此提出不合理要求，依然会按实际情况沟通",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "稍微愣一下，觉得这话有点刺耳，但通常不会当场点破",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "立刻觉得自己亏欠很多，接下来在相处里会下意识更迁就对方",
+            score: 2
+          }
+        ]
+      },
+      {
+        id: "Q04",
+        dimension: "自身付出期待",
+        stem: "你连续几次主动帮一位朋友改简历、参谋工作方案，对方每次都说“太感谢你了”，但之后再无任何互动或回馈。你的状态更像？",
+        options: [
+          {
+            key: "A",
+            text: "当初是自己愿意帮才做的，没收到回馈也没关系，以后按自己的精力决定是否再帮",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "会有一点点失落，觉得彼此互动有点单向，慢慢减少主动",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "越想越觉得自己白费力气，心里悄悄记了一笔账，却又不好意思直接说",
+            score: 2
+          }
+        ]
+      },
+      {
+        id: "Q05",
+        dimension: "关系不对等识别",
+        stem: "和一位朋友一起买单或拼团，几次下来总是你先垫付，对方偶尔转钱也常抹零或晚几天。你通常会？",
+        options: [
+          {
+            key: "A",
+            text: "清楚核对账目，该怎么算就怎么算，觉得明算账反而让关系更轻松",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "心里有点小嘀咕，但数额不大的话，懒得开口催或算得太细",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "嘴上说着“没事没事，别算那么清”，心里却默默记着差额，甚至有点憋屈",
+            score: 2
+          }
+        ]
+      },
+      {
+        id: "Q06",
+        dimension: "情绪压力回应",
+        stem: "朋友最近感情受挫，连续一周每天深夜给你发长语音倾诉，而你白天工作已经很疲惫。你更可能？",
+        options: [
+          {
+            key: "A",
+            text: "温柔告诉对方自己今天很累，约明天白天好好聊，既表达关心也守住休息时间",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "回几句安慰的话，晚一点再听，尽量撑着陪一会儿",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "怕对方觉得自己冷漠无情，哪怕困得睁不开眼也强打精神回消息",
+            score: 2
+          }
+        ]
+      },
+      {
+        id: "Q07",
+        dimension: "关系边界维护",
+        stem: "朋友在临近截止前两小时突然发来消息：“能不能顺便帮我把这份表格核对一下，急用！”你的反应更接近？",
+        options: [
+          {
+            key: "A",
+            text: "看自己手头是否有空，没空就明确说明现在腾不出手，帮不上忙",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "先看一眼工作量，如果只是几分钟的事就帮，太复杂会商量延后或婉拒",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "虽然手头正忙，但想到“就这一次，拒绝显得太不够意思”，还是硬着头皮接下",
+            score: 2
+          }
+        ]
+      },
+      {
+        id: "Q08",
+        dimension: "互惠与公平理解",
+        stem: "逢年过节或朋友生日送礼时，你更看重什么？",
+        options: [
+          {
+            key: "A",
+            text: "挑对方喜欢且符合自己心意的礼物，礼物轻重随缘，不把互赠当成严格的等价交换",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "会参考对方上次送了什么，尽量控制在差不多的档位，图个心安",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "如果收到很贵重的礼物，会觉得压力很大，总想着必须送回同等甚至更贵的才安心",
+            score: 2
+          }
+        ]
+      },
+      {
+        id: "Q09",
+        dimension: "真实介意表达",
+        stem: "朋友在聚会时当众拿你“花钱大手大脚”或“抠门”开玩笑，让你觉得有点不舒服。你通常会？",
+        options: [
+          {
+            key: "A",
+            text: "平静或带点幽默地把话说回来，澄清真实情况，不让玩笑变成标签",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "跟着笑笑带过，事后如果还在意，可能会私下找机会提一嘴",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "表面附和着笑，心里却觉得难堪又委屈，怕认真计较会被说“开不起玩笑”",
+            score: 2
+          }
+        ]
+      },
+      {
+        id: "Q10",
+        dimension: "失衡互动维持",
+        stem: "回看过去一两年和某些朋友的相处，如果发现多数时候是你在迁就节奏、照顾情绪，你更倾向于？",
+        options: [
+          {
+            key: "A",
+            text: "觉得这是阶段性的自然状态，如果长期失衡会主动沟通调整，不强求勉强维持",
+            score: 0
+          },
+          {
+            key: "B",
+            text: "意识到有点失衡，会减少主动付出，让关系自然回到更松弛的距离",
+            score: 1
+          },
+          {
+            key: "C",
+            text: "即便觉得累，也习惯继续扛着，担心一旦不迁就，这段关系就会变冷甚至散掉",
+            score: 2
+          }
+        ]
+      }
+    ];
+
+    /**
+     * 2. 画像区间配置（基于原始总分 0—20）
+     */
+    const ARCHETYPE_RANGES = [
+      { id: "clear-boundary", minRaw: 0, maxRaw: 3 },
+      { id: "gentle-scale", minRaw: 4, maxRaw: 7 },
+      { id: "affection-first", minRaw: 8, maxRaw: 11 },
+      { id: "relation-bearer", minRaw: 12, maxRaw: 15 },
+      { id: "high-bearer", minRaw: 16, maxRaw: 20 }
+    ];
+
+    /**
+     * 3. 五种结果画像内容（独立配置，避免空泛套话）
+     */
+    const ARCHETYPES = {
+      "clear-boundary": {
+        name: "边界清晰型",
+        tagline: "心里有尺，但不把情谊变成账本。",
+        analysis:
+          "在面对人情往来与边界试探时，你更倾向于依照当下的真实意愿与实际能力做决定。遇到超出预算的聚餐、精力不足的倾诉或模糊的“旧账提醒”，你能较快分辨出什么是自愿的心意，什么是外界施加的压力，很少为了维持表面和气而强行吞下委屈。",
+        strength:
+          "你不容易陷入“越帮忙越憋屈、越付出越算账”的内耗循环。该答应时干脆，该拒绝时清晰，这让多数人与你相处时反而少了一份隐形的猜忌与心理负担。",
+        blindspot:
+          "当你的表达足够直接或偏重理性时，部分习惯含蓄沟通、或者把“顺着我”当作亲密信号的朋友，可能会误以为你不够热络或距离感较强。",
+        dilemma:
+          "在需要长期磨合或共同承担琐碎事务的关系中，如果只靠“讲道理、划清线”来处理分歧，有时会错过彼此进一步理解情绪背景的机会。",
+        tip:
+          "下次在清晰表达边界之后，可以顺手补一句你真正关心的部分——比如“这周实在没空，但下周三下午我可以好好听你说”，让界限带着温度。"
+      },
+      "gentle-scale": {
+        name: "温柔有刻度型",
+        tagline: "愿意体谅他人，也记得留给自己余地。",
+        analysis:
+          "你既能感受到朋友的善意与需求，又保留着一份相对稳健的自我刻度。面对日常的人情互动，你通常不会把所有付出都视为沉重债务，也不会在关系失衡时完全失去判断；遇到不舒服或超负荷的情况，你更倾向于先评估、再调整，而不是一次性全盘照单全收。",
+        strength:
+          "你在“重情义”与“保自我”之间找到了比较可行的缓冲带。既能接住朋友的日常需要，又不会轻易把整个人生节奏交给别人的情绪或消费习惯。",
+        blindspot:
+          "当遇到特别擅长示弱、或者反复提起过往恩情的人时，你偶尔还是会出现短暂的犹豫与心软，花一些额外精力去权衡“是该拒绝还是再体谅一下”。",
+        dilemma:
+          "在人情往来中，有时你选择“先忍一小步看看”，但如果对方把这份缓冲当作默认许可，时间久了仍可能出现局部的疲惫感。",
+        tip:
+          "留心那些让你在心里默念“算了，就这一次”的瞬间，问问自己：这次是出于自在的善意，还是怕麻烦、怕扫兴？"
+      },
+      "affection-first": {
+        name: "情分优先型",
+        tagline: "把情分放在前面，却容易把委屈留在后面。",
+        analysis:
+          "对你来说，友情里的情意、默契与相处氛围往往排在算计之前。你愿意付出，也乐于照顾朋友的感受；但当对方出现隐性索取、消费超出预算或玩笑越界时，你更容易先顾及对方的面子与关系温度，把自己的介意先压下来。",
+        strength:
+          "你极具包容度与共情力，在很多朋友眼中是值得依靠、懂得体谅的人。你不会轻易因为一点小摩擦就急着算清账目或疏远关系。",
+        blindspot:
+          "把“顾全大局”放在第一位时，你可能会低估自己情绪的耗损。表面上看起来风平浪静，实则某些未被说出口的在意正在悄悄沉淀。",
+        dilemma:
+          "当一段关系长期由你来照顾情绪、迁就节奏时，一旦你某天感到疲惫或想退一步，可能会因为习惯了“懂事”而感到难以开口。",
+        tip:
+          "试着在感受到一点点不适时，就用轻描淡写的方式说出来，不必等到攒成委屈才去处理——真实的沟通往往比压抑更省力。"
+      },
+      "relation-bearer": {
+        name: "关系承接型",
+        tagline: "习惯把失衡扛下来，只为让关系稳住。",
+        analysis:
+          "在面对亏欠感、隐性人情压力或互动不对等时，你较常采取“承接”的策略。别人帮了你，你会觉得必须尽快偿还；对方情绪起伏或消费升级，你会下意识调整自己去配合；即便心里觉得不划算或不舒服，也倾向于先稳住关系再说。",
+        strength:
+          "你非常珍视人与人之间的连接，具备很强的承压能力与体贴度。在关系出现波动时，你往往是那个愿意先伸手、先缓和气氛的人。",
+        blindspot:
+          "你容易把别人的期待、甚至别人的情绪压力，误认作自己必须履行的责任。久而久之，付出与承受的边界会变得模糊。",
+        dilemma:
+          "当对方习惯了你的顺从与承接，就更难察觉你的真实底线；而你则可能在“不想破坏关系”和“自己快撑不住了”之间反复拉扯。",
+        tip:
+          "观察一下：当你说“没关系、我可以”的时候，身体和情绪是放松的，还是紧绷的？把紧绷感当作一个温和的提醒信号。"
+      },
+      "high-bearer": {
+        name: "高承接倾向型",
+        tagline: "太怕亏欠与疏离，于是把重担揽给了自己。",
+        analysis:
+          "在很多涉及人情、付出与边界的时刻，你对“亏欠感”“怕显得不够重情义”或“怕关系变冷”格外敏感。因此，你很容易在内心并不轻松的情况下选择答应、配合或补偿，甚至在关系已经明显不对等时，依然担心一旦不承接就会失去这段连接。",
+        strength:
+          "你拥有极高的敏感度与深厚的情感投入意愿，能够敏锐察觉他人的需要与情绪变化，在关系中往往展现出很强的付出与成全。",
+        blindspot:
+          "高承接并不等于软弱，但它很容易让你把“维持关系不破裂”的责任全部揽在自己肩上，忽略了自己也有权感到累、有权说不、有权不被过度索取。",
+        dilemma:
+          "当你长期用压抑与承接去维系一段关系时，关系表面上或许还在继续，但你内在的疲惫与隐性压力却可能在不知不觉中越积越深。",
+        tip:
+          "试着练习一件很小的事：在面对非紧急、非原则的请求时，先给自己留出几小时缓冲，不急着立刻给出“好”或“没问题”。"
+      }
+    };
+
+    /**
+     * 4. 轻量统计接口钩子（默认静默，不发送任何外部网络请求）
+     */
+    const analyticsHook = {
+      emit(eventName, payload = {}) {
+        if (typeof window.__RELATION_OBS_TRACK__ === "function") {
+          try {
+            window.__RELATION_OBS_TRACK__(eventName, payload);
+          } catch (_) {
+            // 忽略外部钩子异常，保证主流程不受影响
+          }
+        }
+      }
+    };
+
+    /**
+     * 5. 页面状态管理
+     */
+    const state = {
+      view: "home", // "home" | "quiz" | "result"
+      currentIndex: 0,
+      answers: Array(QUESTIONS.length).fill(null),
+      isTransitioning: false,
+      transitionTimer: null,
+      lastResult: null
+    };
+
+    // DOM 引用
+    const els = {
+      views: {
+        home: document.getElementById("view-home"),
+        quiz: document.getElementById("view-quiz"),
+        result: document.getElementById("view-result")
+      },
+      btnStart: document.getElementById("btnStart"),
+      btnPrev: document.getElementById("btnPrev"),
+      currentQNum: document.getElementById("currentQNum"),
+      totalQNum: document.getElementById("totalQNum"),
+      progressFill: document.getElementById("progressFill"),
+      rulerTrack: document.querySelector(".ruler-track"),
+      qBadge: document.getElementById("qBadge"),
+      qDimension: document.getElementById("qDimension"),
+      qStem: document.getElementById("qStem"),
+      optionsContainer: document.getElementById("optionsContainer"),
+      transitionHint: document.getElementById("transitionHint"),
+      resultScoreIndex: document.getElementById("resultScoreIndex"),
+      resultRawDetail: document.getElementById("resultRawDetail"),
+      resultTitle: document.getElementById("resultTitle"),
+      resultTagline: document.getElementById("resultTagline"),
+      resultAnalysis: document.getElementById("resultAnalysis"),
+      resultStrength: document.getElementById("resultStrength"),
+      resultBlindspot: document.getElementById("resultBlindspot"),
+      resultDilemma: document.getElementById("resultDilemma"),
+      resultTip: document.getElementById("resultTip"),
+      btnCopy: document.getElementById("btnCopy"),
+      btnShare: document.getElementById("btnShare"),
+      btnDownloadImg: document.getElementById("btnDownloadImg"),
+      btnRestart: document.getElementById("btnRestart"),
+      actionFeedback: document.getElementById("actionFeedback"),
+      shareCanvas: document.getElementById("shareCanvas")
+    };
+
+    function clearPendingTransition() {
+      if (state.transitionTimer) {
+        clearTimeout(state.transitionTimer);
+        state.transitionTimer = null;
+      }
+      state.isTransitioning = false;
+      els.transitionHint.textContent = "";
+    }
+
+    function switchView(targetView) {
+      state.view = targetView;
+      Object.keys(els.views).forEach((key) => {
+        els.views[key].classList.toggle("active", key === targetView);
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /**
+     * 6. 计分与画像匹配逻辑
+     */
+    function calculateScoreAndArchetype(answers) {
+      const maxRaw = QUESTIONS.length * 2;
+      const rawScore = answers.reduce((sum, optIdx, qIdx) => {
+        if (optIdx === null || optIdx === undefined) return sum;
+        const opt = QUESTIONS[qIdx] && QUESTIONS[qIdx].options[optIdx];
+        return sum + (opt ? opt.score : 0);
+      }, 0);
+
+      const clampedRaw = Math.max(0, Math.min(maxRaw, rawScore));
+      const indexScore = Number(((clampedRaw / maxRaw) * 10).toFixed(1));
+
+      const matchedRange =
+        ARCHETYPE_RANGES.find((r) => clampedRaw >= r.minRaw && clampedRaw <= r.maxRaw) ||
+        ARCHETYPE_RANGES[0];
+
+      const archetype = ARCHETYPES[matchedRange.id];
+
+      return {
+        rawScore: clampedRaw,
+        maxRaw,
+        indexScore,
+        archetypeId: matchedRange.id,
+        archetype
+      };
+    }
+
+    /**
+     * 7. 题目渲染、自动跳题与返回上一题
+     */
+    function renderQuestion() {
+      clearPendingTransition();
+      const q = QUESTIONS[state.currentIndex];
+      const total = QUESTIONS.length;
+      const numStr = String(state.currentIndex + 1).padStart(2, "0");
+      const totalStr = String(total).padStart(2, "0");
+
+      els.currentQNum.textContent = numStr;
+      els.totalQNum.textContent = totalStr;
+      els.btnPrev.disabled = state.currentIndex === 0;
+
+      const percent = Math.round(((state.currentIndex + 1) / total) * 100);
+      els.progressFill.style.width = `${percent}%`;
+      els.rulerTrack.setAttribute("aria-valuenow", String(percent));
+
+      els.qBadge.textContent = q.id;
+      els.qDimension.textContent = `观察维度 · ${q.dimension}`;
+      els.qStem.textContent = q.stem;
+
+      els.optionsContainer.innerHTML = "";
+      const selectedOptIdx = state.answers[state.currentIndex];
+
+      q.options.forEach((opt, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "option-btn" + (selectedOptIdx === idx ? " selected" : "");
+        btn.setAttribute("aria-pressed", selectedOptIdx === idx ? "true" : "false");
+
+        const keySpan = document.createElement("span");
+        keySpan.className = "option-key";
+        keySpan.textContent = opt.key;
+
+        const textSpan = document.createElement("span");
+        textSpan.className = "option-text";
+        textSpan.textContent = opt.text;
+
+        btn.appendChild(keySpan);
+        btn.appendChild(textSpan);
+
+        btn.addEventListener("click", () => handleSelectOption(idx));
+        els.optionsContainer.appendChild(btn);
+      });
+    }
+
+    function handleSelectOption(optionIndex) {
+      if (state.isTransitioning) return;
+      state.isTransitioning = true;
+
+      state.answers[state.currentIndex] = optionIndex;
+
+      // 更新当前选项选中态
+      const buttons = els.optionsContainer.querySelectorAll(".option-btn");
+      buttons.forEach((b, i) => {
+        b.disabled = true;
+        const isSelected = i === optionIndex;
+        b.classList.toggle("selected", isSelected);
+        b.setAttribute("aria-pressed", isSelected ? "true" : "false");
+      });
+
+      const isLast = state.currentIndex === QUESTIONS.length - 1;
+      els.transitionHint.textContent = isLast
+        ? "已记录，正在生成观察档案..."
+        : "已记录，正在进入下一题...";
+
+      state.transitionTimer = setTimeout(() => {
+        state.isTransitioning = false;
+        els.transitionHint.textContent = "";
+
+        if (isLast) {
+          showResultView();
+        } else {
+          state.currentIndex += 1;
+          renderQuestion();
+        }
+      }, 360);
+    }
+
+    function handlePrevQuestion() {
+      if (state.currentIndex <= 0) return;
+      clearPendingTransition();
+      state.currentIndex -= 1;
+      renderQuestion();
+    }
+
+    /**
+     * 8. 结果页渲染与分享卡片生成
+     */
+    function showResultView() {
+      const result = calculateScoreAndArchetype(state.answers);
+      state.lastResult = result;
+
+      els.resultScoreIndex.textContent = result.indexScore.toFixed(1);
+      els.resultRawDetail.textContent = `原始得分 ${result.rawScore} / ${result.maxRaw}`;
+      els.resultTitle.textContent = result.archetype.name;
+      els.resultTagline.textContent = `“${result.archetype.tagline}”`;
+      els.resultAnalysis.textContent = result.archetype.analysis;
+      els.resultStrength.textContent = result.archetype.strength;
+      els.resultBlindspot.textContent = result.archetype.blindspot;
+      els.resultDilemma.textContent = result.archetype.dilemma;
+      els.resultTip.textContent = result.archetype.tip;
+      els.actionFeedback.textContent = "";
+
+      switchView("result");
+      drawSharePoster(result);
+      analyticsHook.emit("test_completed", {
+        indexScore: result.indexScore,
+        rawScore: result.rawScore,
+        archetypeId: result.archetypeId
+      });
+    }
+
+    function buildShareText(result) {
+      return [
+        `【关系观察室 · FIELD NOTE 001】`,
+        `价格敏感型朋友吸引指数：${result.indexScore.toFixed(1)} / 10 分`,
+        `观察画像：${result.archetype.name}`,
+        `“${result.archetype.tagline}”`,
+        `（注：指数反映人情压力与边界情境中的承接倾向，非吸引概率。）`
+      ].join("\n");
+    }
+
+    async function copyTextToClipboard(text) {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(textarea);
+      return ok;
+    }
+
+    async function handleCopyResult() {
+      if (!state.lastResult) return;
+      const text = buildShareText(state.lastResult);
+      try {
+        const ok = await copyTextToClipboard(text);
+        els.actionFeedback.textContent = ok
+          ? "已复制结果文案，可直接粘贴发送给朋友。"
+          : "当前环境不支持自动复制，请手动长按复制结果内容。";
+      } catch (_) {
+        els.actionFeedback.textContent = "复制未成功，请手动选择页面文字复制。";
+      }
+    }
+
+    async function handleShareResult() {
+      if (!state.lastResult) return;
+      const text = buildShareText(state.lastResult);
+
+      if (typeof navigator.share === "function") {
+        try {
+          await navigator.share({
+            title: "价格敏感型朋友吸引指数 · 关系观察室",
+            text: text
+          });
+          els.actionFeedback.textContent = "已调起系统分享面板。";
+          return;
+        } catch (err) {
+          if (err && err.name === "AbortError") {
+            els.actionFeedback.textContent = "已取消分享。";
+            return;
+          }
+        }
+      }
+
+      // 降级为复制文案
+      try {
+        const ok = await copyTextToClipboard(text);
+        els.actionFeedback.textContent = ok
+          ? "当前浏览器不支持直接分享，已为你复制结果文案。"
+          : "当前浏览器不支持直接分享，请使用“保存结果图片”或手动复制。";
+      } catch (_) {
+        els.actionFeedback.textContent = "当前浏览器不支持直接分享，请使用“保存结果图片”。";
+      }
+    }
+
+    function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
+      const chars = Array.from(text);
+      let line = "";
+      let currentY = y;
+
+      for (let i = 0; i < chars.length; i++) {
+        const testLine = line + chars[i];
+        const metrics = ctx.measureText(testLine);
+        if (metrics.width > maxWidth && line.length > 0) {
+          ctx.fillText(line, x, currentY);
+          line = chars[i];
+          currentY += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+      if (line) {
+        ctx.fillText(line, x, currentY);
+        currentY += lineHeight;
+      }
+      return currentY;
+    }
+
+    function drawSharePoster(result) {
+      const canvas = els.shareCanvas;
+      if (!canvas || typeof canvas.getContext !== "function") return;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) return;
+
+      const W = canvas.width;
+      const H = canvas.height;
+
+      // 底色与外框
+      ctx.fillStyle = "#f6f1e7";
+      ctx.fillRect(0, 0, W, H);
+
+      ctx.strokeStyle = "#181715";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(28, 28, W - 56, H - 56);
+
+      ctx.strokeStyle = "#d6cec0";
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(38, 38, W - 76, H - 76);
+
+      // 顶部刊头
+      ctx.fillStyle = "#181715";
+      ctx.font = "bold 24px 'Songti SC', 'Noto Serif SC', serif";
+      ctx.fillText("关系观察室", 64, 88);
+
+      ctx.fillStyle = "#7c756b";
+      ctx.font = "16px monospace";
+      ctx.fillText("RELATIONSHIP OBSERVATORY", 198, 86);
+
+      ctx.fillStyle = "#b83b2a";
+      ctx.font = "bold 16px monospace";
+      ctx.fillText("FIELD NOTE 001", W - 205, 86);
+
+      // 分隔线
+      ctx.strokeStyle = "#181715";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(64, 112);
+      ctx.lineTo(W - 64, 112);
+      ctx.stroke();
+
+      // 测试名称
+      ctx.fillStyle = "#4e4a43";
+      ctx.font = "20px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+      ctx.fillText("测试主题", 64, 162);
+
+      ctx.fillStyle = "#181715";
+      ctx.font = "bold 36px 'Songti SC', 'Noto Serif SC', serif";
+      ctx.fillText("价格敏感型朋友吸引指数", 64, 210);
+
+      // 分数大字号区
+      ctx.fillStyle = "#fbf8f2";
+      ctx.fillRect(64, 245, W - 128, 210);
+      ctx.strokeStyle = "#181715";
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(64, 245, W - 128, 210);
+
+      ctx.fillStyle = "#b83b2a";
+      ctx.font = "bold 96px monospace";
+      ctx.fillText(result.indexScore.toFixed(1), 92, 365);
+
+      ctx.fillStyle = "#4e4a43";
+      ctx.font = "24px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+      ctx.fillText("/ 10 分", 325, 360);
+
+      ctx.fillStyle = "#7c756b";
+      ctx.font = "16px monospace";
+      ctx.fillText(
+        `承接倾向观察指数 · 原始得分 ${result.rawScore}/${result.maxRaw}`,
+        92,
+        416
+      );
+
+      // 结果画像与一句总结
+      ctx.fillStyle = "#234b7a";
+      ctx.font = "bold 18px monospace";
+      ctx.fillText("OBSERVATION ARCHETYPE / 观察画像", 64, 520);
+
+      ctx.fillStyle = "#181715";
+      ctx.font = "bold 44px 'Songti SC', 'Noto Serif SC', serif";
+      ctx.fillText(result.archetype.name, 64, 578);
+
+      ctx.fillStyle = "#181715";
+      ctx.font = "24px 'Songti SC', 'Noto Serif SC', serif";
+      const nextY = wrapCanvasText(
+        ctx,
+        `“${result.archetype.tagline}”`,
+        64,
+        636,
+        W - 128,
+        36
+      );
+
+      // 装饰性左侧竖线摘要
+      ctx.strokeStyle = "#7c9a2c";
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(64, nextY + 18);
+      ctx.lineTo(64, nextY + 98);
+      ctx.stroke();
+
+      ctx.fillStyle = "#4e4a43";
+      ctx.font = "18px 'PingFang SC', 'Microsoft YaHei', sans-serif";
+      wrapCanvasText(
+        ctx,
+        "观察说明：本指数反映你在人情压力、亏欠感与边界协商中的承接方式，不代表吸引概率。",
+        84,
+        nextY + 44,
+        W - 150,
+        28
+      );
+
+      // 底部署名
+      ctx.strokeStyle = "#d6cec0";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(64, H - 115);
+      ctx.lineTo(W - 64, H - 115);
+      ctx.stroke();
+
+      ctx.fillStyle = "#7c756b";
+      ctx.font = "16px 'PingFang SC', monospace";
+      ctx.fillText("关系观察室 · 轻心理学与日常关系观察", 64, H - 72);
+    }
+
+    function handleDownloadImage() {
+      if (!state.lastResult) return;
+      drawSharePoster(state.lastResult);
+
+      try {
+        const dataUrl = els.shareCanvas.toDataURL("image/png");
+        if (!dataUrl || !dataUrl.startsWith("data:image/png")) {
+          els.actionFeedback.textContent = "图片导出受限，可直接长按上方预览卡片保存。";
+          return;
+        }
+        const link = document.createElement("a");
+        link.download = `关系观察室-吸引指数-${state.lastResult.indexScore.toFixed(1)}分.png`;
+        link.href = dataUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        els.actionFeedback.textContent = "已触发 PNG 图片下载；若未自动保存，可长按预览图保存。";
+      } catch (_) {
+        els.actionFeedback.textContent = "当前环境无法直接下载图片，请长按上方预览卡片保存。";
+      }
+    }
+
+    function handleRestart() {
+      clearPendingTransition();
+      state.currentIndex = 0;
+      state.answers = Array(QUESTIONS.length).fill(null);
+      state.lastResult = null;
+      els.actionFeedback.textContent = "";
+      switchView("home");
+    }
+
+    // 绑定事件
+    els.btnStart.addEventListener("click", () => {
+      clearPendingTransition();
+      state.currentIndex = 0;
+      state.answers = Array(QUESTIONS.length).fill(null);
+      switchView("quiz");
+      renderQuestion();
+      analyticsHook.emit("test_started");
+    });
+
+    els.btnPrev.addEventListener("click", handlePrevQuestion);
+    els.btnCopy.addEventListener("click", handleCopyResult);
+    els.btnShare.addEventListener("click", handleShareResult);
+    els.btnDownloadImg.addEventListener("click", handleDownloadImage);
+    els.btnRestart.addEventListener("click", handleRestart);
+  </script>
 </body>
 </html>
