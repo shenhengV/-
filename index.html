@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f3efe7">
+<meta name="description" content="友情里可以谈钱，但每一份付出都要被记账吗？测测你的价格敏感型朋友吸引指数。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="你有多容易吸引价格敏感型朋友？">
+<meta property="og:description" content="10道关系情境题，看看你的友情相处模式。">
+<title>价格敏感型朋友吸引指数｜关系观察室</title>
+<style>
+:root{
+ --bg:#f3efe7;--paper:#fffdf8;--ink:#292820;--muted:#777367;--line:#ddd5c8;
+ --accent:#a75d43;--accent-soft:#f4e8df;--olive:#697568;--gold:#bd9664;
+ --serif:Georgia,"Songti SC","Noto Serif CJK SC","STSong",serif;
+ --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.65}
+button{font:inherit}button:focus-visible{outline:3px solid #c28c70;outline-offset:3px}
+.page{width:min(100% - 36px,760px);margin:auto}
+.masthead{height:66px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.14em;color:var(--muted)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:750;letter-spacing:.1em}
+.brand-mark{width:25px;height:25px;border:1px solid var(--accent);border-radius:50%;display:grid;place-items:center;color:var(--accent);font-family:var(--serif);font-size:15px}
+.issue{font-size:10px}
+.hero{padding:66px 0 50px}
+.eyebrow{font-size:10px;letter-spacing:.22em;color:var(--accent);font-weight:750}
+h1{font:500 clamp(39px,8vw,67px)/1.15 var(--serif);letter-spacing:-.045em;margin:20px 0 20px}
+h1 span{color:var(--accent)}
+.lede{max-width:540px;color:var(--muted);font-size:15px;margin:0}
+.meta{display:flex;gap:20px;flex-wrap:wrap;margin:27px 0 32px;color:var(--muted);font-size:11px}
+.meta span:before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin:0 8px 1px 0}
+.intro{background:var(--paper);border:1px solid var(--line);padding:24px 26px;display:grid;grid-template-columns:1fr 76px;gap:20px;align-items:center}
+.intro p{margin:0;color:#625e54;font-size:14px}
+.intro strong{color:var(--ink)}
+.seal{height:72px;width:72px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;text-align:center;color:var(--accent);font:12px/1.25 var(--serif);transform:rotate(-8deg)}
+.actions{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-top:27px}
+.btn{border:1px solid var(--ink);background:var(--ink);color:#fffdf8;padding:14px 22px;cursor:pointer;font-size:13px;letter-spacing:.04em;transition:.18s}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn.secondary{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.secondary:hover{background:var(--paper);border-color:var(--accent);color:var(--accent)}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.micro{font-size:11px;color:var(--muted)}
+.note{border-top:1px solid var(--line);padding:37px 0 42px}
+.note-label{font-size:10px;letter-spacing:.2em;color:var(--accent);font-weight:750}
+.note h2{font:500 27px var(--serif);margin:10px 0}
+.note p{font-size:13px;color:var(--muted);max-width:640px;margin:0}
+#quiz,#result{display:none;padding:48px 0 68px}
+.quiz-top{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:12px}
+.progress{height:3px;background:#e5ded2;margin-bottom:36px}
+.progress>div{height:100%;width:0;background:var(--accent);transition:width .25s}
+.q-kicker{font-size:10px;letter-spacing:.2em;color:var(--accent);font-weight:750}
+.question{font:500 clamp(24px,5vw,34px)/1.42 var(--serif);margin:14px 0 26px}
+.options{display:grid;gap:10px}
+.option{width:100%;display:flex;align-items:flex-start;gap:14px;text-align:left;background:rgba(255,253,248,.65);border:1px solid var(--line);padding:16px 17px;color:var(--ink);cursor:pointer;transition:.15s}
+.option:hover{border-color:var(--gold);background:var(--paper)}
+.option.selected{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 3px 0 var(--accent)}
+.letter{width:24px;height:24px;flex:0 0 24px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:10px;color:var(--muted)}
+.selected .letter{background:var(--accent);border-color:var(--accent);color:white}
+.option-text{font-size:13px;line-height:1.6}
+.quiz-controls{display:flex;justify-content:space-between;gap:12px;margin-top:27px}
+.result-head{background:var(--paper);border:1px solid var(--line);padding:clamp(23px,5vw,40px);position:relative;overflow:hidden}
+.result-head:after{content:"";position:absolute;width:230px;height:230px;border:1px solid #ead8c9;border-radius:50%;right:-105px;top:-110px;box-shadow:0 0 0 22px #f4e8df66,0 0 0 48px #f4e8df44}
+.result-kicker{font-size:10px;letter-spacing:.2em;color:var(--accent);font-weight:750}
+.score-line{display:flex;align-items:flex-end;gap:8px;margin:14px 0 5px;position:relative;z-index:1}
+.score{font:clamp(78px,17vw,112px)/.95 var(--serif);letter-spacing:-.07em;color:var(--accent)}
+.outof{font:23px var(--serif);color:var(--muted);padding-bottom:10px}
+.result-name{font:500 29px var(--serif);margin:16px 0 8px;position:relative;z-index:1}
+.result-desc{font-size:13px;color:#625e54;max-width:560px;margin:0;position:relative;z-index:1}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:13px}
+.panel{border:1px solid var(--line);padding:20px;background:#fffdf880}
+.panel h3{font-size:11px;color:var(--accent);letter-spacing:.1em;margin:0 0 10px}
+.panel ul{margin:0;padding-left:17px}
+.panel li{font-size:12px;color:#625e54;margin:5px 0}
+.quote{font:21px/1.5 var(--serif);padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:22px 0}
+.share-card-wrap{margin-top:25px}
+.share-card-label{font-size:10px;color:var(--muted);letter-spacing:.15em;margin-bottom:10px}
+#shareCanvas{display:block;width:min(100%,420px);height:auto;border:1px solid var(--line);background:var(--paper)}
+.share-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}
+.disclaimer{font-size:10px;color:var(--muted);margin-top:18px}
+.footer{border-top:1px solid var(--line);padding:23px 0 32px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:white;padding:10px 16px;font-size:12px;pointer-events:none;transition:.2s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:560px){.page{width:calc(100% - 28px)}.hero{padding:51px 0 38px}.intro{grid-template-columns:1fr;padding:19px}.seal{display:none}.result-grid{grid-template-columns:1fr}.masthead{height:58px}.btn{padding:13px 16px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="masthead">
+ <div class="brand"><span class="brand-mark">间</span> 关系观察室</div>
+ <div class="issue">FIELD NOTES · NO. 001</div>
+</header>
+<main>
+<section class="hero" id="landing">
+ <div class="eyebrow">A LITTLE TEST ABOUT FRIENDSHIP</div>
+ <h1>你有多容易吸引<br><span>价格敏感型朋友？</span></h1>
+ <p class="lede">一顿饭、一份礼物、一次帮忙……友情里那些说不清的人情账，你通常怎么处理？</p>
+ <div class="meta"><span>约 3 分钟</span><span>10 道情境题</span><span>关系互动画像</span></div>
+ <div class="intro">
+  <p><strong>朋友之间当然可以谈钱，也应该有合理的付出与回报。</strong><br>但如果每一份付出都要被记住，每一笔人情都等待偿还，友情就难免变成一本永远算不清的账。来看看，你的相处方式是否容易让自己陷入这样的关系。</p>
+  <div class="seal">FRIEND<br>SHIP<br>NOTES</div>
+ </div>
+ <div class="actions"><button class="btn" id="startBtn">开始测试　↗</button><span class="micro">没有标准答案，按真实的第一反应选择即可。</span></div>
+</section>
+<section class="note" id="about">
+ <div class="note-label">BEFORE YOU START</div>
+ <h2>这不是一场友情审判。</h2>
+ <p>我们不判断谁该付钱、谁该回礼，也不把正常的边界和公平需求当成问题。这个测试关注的是：当关系出现付出不对等时，你通常如何回应，以及你是否容易承担超出自己意愿的那一部分。</p>
+</section>
+<section id="quiz">
+ <div class="quiz-top"><span id="stepLabel">QUESTION 01 / 10</span><span id="answeredLabel">已完成 0 / 10</span></div>
+ <div class="progress"><div id="progressFill"></div></div>
+ <div class="q-kicker" id="qNumber">01 — YOUR INSTINCT</div>
+ <h2 class="question" id="questionText"></h2>
+ <div class="options" id="options"></div>
+ <div class="quiz-controls"><button class="btn secondary" id="prevBtn">← 上一题</button><button class="btn" id="nextBtn" disabled>下一题 →</button></div>
+</section>
+<section id="result">
+ <div class="result-head">
+  <div class="result-kicker">YOUR RELATIONSHIP PATTERN INDEX</div>
+  <div class="score-line"><div class="score" id="scoreValue">0.0</div><div class="outof">/ 10</div></div>
+  <div class="result-name" id="resultName"></div>
+  <p class="result-desc" id="resultDesc"></p>
+ </div>
+ <div class="result-grid">
+  <div class="panel"><h3>你可能习惯这样相处</h3><ul id="traits"></ul></div>
+  <div class="panel"><h3>可以留意的关系信号</h3><ul id="signals"></ul></div>
+ </div>
+ <div class="quote" id="resultQuote"></div>
+ <div class="share-card-wrap">
+  <div class="share-card-label">YOUR SHARE CARD · 长按或保存图片分享</div>
+  <canvas id="shareCanvas" width="840" height="1050" aria-label="测试结果分享卡片"></canvas>
+ </div>
+ <div class="share-actions">
+  <button class="btn" id="downloadBtn">保存结果图片 ↓</button>
+  <button class="btn secondary" id="shareBtn">分享结果 ↗</button>
+  <button class="btn secondary" id="copyBtn">复制结果文案</button>
+  <button class="btn secondary" id="againBtn">再测一次</button>
+ </div>
+ <p class="disclaimer">说明：这是基于情境选择设计的趣味自测。指数反映你在这些关系情境中的互动倾向，不代表真实吸引概率，也不是心理诊断。合理结算、拒绝不合理要求、在意公平，都不等于“价格敏感”。</p>
+</section>
+</main>
+<footer class="footer"><span>关系观察室 · 用一点好奇心，观察人与人的关系</span><span>把情分留给情分，把边界留给自己。</span></footer>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+/*
+ * 可选统计接入：
+ * 1. 先创建 GA4 / Plausible 等统计项目；
+ * 2. 按服务商说明安装统计脚本；
+ * 3. 本页面会向 gtag（若存在）和 dataLayer 推送匿名事件：
+ *    test_view, test_start, question_answer, test_complete, result_share, result_download, result_copy
+ * 当前没有配置第三方统计 ID，因此不会自动向任何分析服务发送数据。
+ */
+window.dataLayer = window.dataLayer || [];
+function track(name,params={}) {
+ const payload={event:name,...params};
+ window.dataLayer.push(payload);
+ if(typeof window.gtag==="function") window.gtag("event",name,params);
+}
+track("test_view",{test_id:"price_sensitive_friend_001"});
+
+const questions=[
+ {q:"朋友临时拜托你帮忙做一件比较耗时的事，但没有提报酬。你通常会？",a:[
+  ["只要能力范围内、自己也愿意，就会帮忙",0],
+  ["会帮忙，但希望对方能意识到这份付出",1],
+  ["先衡量时间和精力，再决定是否答应",0],
+  ["不太好意思拒绝，即使已经有点勉强",3]]},
+ {q:"朋友经常向你倾诉烦恼，但很少主动关心你的生活。你会？",a:[
+  ["如果愿意听就听，不想听时也会说出来",0],
+  ["会继续关心，但也希望对方能回应我",1],
+  ["慢慢减少投入，避免长期失衡",0],
+  ["即使觉得累，也常常先接住对方的情绪",3]]},
+ {q:"你和朋友约好见面，对方临时改时间，已经是第三次了。你会？",a:[
+  ["直接告诉对方这让我不舒服，请他尊重约定",0],
+  ["这次先算了，但会减少之后的主动安排",1],
+  ["会问清原因，再决定能不能接受",0],
+  ["嘴上说没关系，心里不舒服却不太会表达",3]]},
+ {q:"朋友曾经帮过你一个忙，后来发生争执时，对方把这件事拿出来说。你会？",a:[
+  ["感谢对方曾经帮忙，但认为不该用来抵消当前问题",0],
+  ["会觉得不舒服，也会想想自己是否忽略过对方",1],
+  ["愿意把事情说开，但不接受用旧人情施压",0],
+  ["容易因为这份旧人情而觉得自己理亏",3]]},
+ {q:"你帮朋友搬家，花了大半天时间。后来发现对方没有任何表示。你会？",a:[
+  ["如果当时是自愿帮忙，就不会默认对方欠我",0],
+  ["会有一点失落，希望自己的付出被看见",1],
+  ["下次会根据自己的时间和意愿决定帮到什么程度",0],
+  ["会觉得不好意思开口，但心里一直记着",3]]},
+ {q:"朋友送了你一份价值不低的礼物，但你暂时没能力回赠同等价值的东西。你会？",a:[
+  ["坦然接受，心意不需要立刻等价偿还",0],
+  ["表达感谢，以后有合适机会再回馈",0],
+  ["会有些压力，担心对方觉得我不够重视这段关系",2],
+  ["会尽快准备一份差不多价值的礼物，才能安心",2]]},
+ {q:"你和朋友一起旅行，对方个人原因临时改变行程，导致你多花了钱。你认为？",a:[
+  ["先沟通实际情况，该谁承担就合理分担",0],
+  ["如果是对方造成的额外费用，应该明确补偿",0],
+  ["怕谈钱伤感情，可能先自己承担再说",3],
+  ["会先把费用和责任列清楚，避免争议",1]]},
+ {q:"当你发现一段友情长期只有自己主动联系、安排活动和提供帮助，你会？",a:[
+  ["减少主动，观察彼此是否还有维系关系的意愿",0],
+  ["找机会沟通自己的感受",0],
+  ["继续维持一阵子，担心自己不主动关系就散了",3],
+  ["重新评估投入程度，并调整相处方式",1]]},
+ {q:"朋友提出一个你不太愿意答应的请求，但你知道拒绝后对方可能会失望。你会？",a:[
+  ["礼貌拒绝，不把对方的失望当成自己的责任",0],
+  ["解释原因，看看能不能找到双方都能接受的办法",1],
+  ["通常会先答应，之后再想办法消化自己的不情愿",3],
+  ["视事情大小决定，不会因为怕尴尬就答应",0]]},
+ {q:"朋友说“我以前为你做过那么多，这次你就不能帮我吗？”你第一反应更接近？",a:[
+  ["过去的帮助值得感谢，但不代表我必须答应每个要求",0],
+  ["会先确认这次请求是否合理、自己是否有余力",0],
+  ["容易感到亏欠，觉得拒绝好像不够朋友",3],
+  ["会想起彼此过去的付出，试图判断谁欠谁更多",2]]}
+];
+
+const profiles=[
+ {min:0,max:2.4,name:"边界清醒型",desc:"你通常能把情分和义务分开。愿意付出时不急着索取回报，不愿意时也比较能够表达。你未必不会遇到爱记账的人，只是较少在不情愿的情况下持续承担。",traits:["愿意帮助，但会考虑自己的实际意愿","能够区分感谢、回馈与被要求偿还","遇到不舒服的互动，通常愿意调整距离"],signals:["留意对方是否把自愿帮助说成理所当然","不必为了证明自己够朋友而过度付出"],quote:"友情可以有来有往，但不必每一步都走在账本上。"},
+ {min:2.5,max:4.4,name:"温和有界型",desc:"你重视关系里的体谅，也有一定的自我保护意识。偶尔会顾及情面多做一点，但通常能在察觉失衡后调整。",traits:["愿意体谅朋友的难处","会期待回应，但不强求每次等价","有时先让一步，之后仍能重新协商"],signals:["别让一次次“没关系”变成默认许可","不舒服时尽量在当下表达，而不是独自消化"],quote:"体谅别人很好，前提是你也在自己的体谅范围内。"},
+ {min:4.5,max:6.4,name:"情分优先型",desc:"你容易先考虑关系能不能继续舒服，再考虑自己的感受。你并不是没有边界，只是有时会把表达边界的时机一拖再拖。",traits:["不太愿意让朋友难堪","可能会先答应，再处理自己的为难","对关系中的冷淡或不对等比较敏感"],signals:["区分“我愿意帮”与“我不好意思拒绝”","留意对方是否持续把你的退让当作理所当然"],quote:"真正的情分，不应该靠一个人不断退让来维持。"},
+ {min:6.5,max:8.4,name:"关系承接型",desc:"你可能习惯替关系兜底：怕对方失望、怕气氛变僵，也怕拒绝之后关系出现裂痕。这样的体贴值得珍惜，但也容易让你承担过多。",traits:["常常先处理别人的需求，再处理自己的感受","不舒服时容易先忍耐，之后反复回想","可能把维持关系的责任揽到自己身上"],signals:["拒绝一件事，不等于否定一个人","观察对方能否尊重你的时间、精力和选择"],quote:"你可以珍惜一段关系，但不必独自负责它的全部重量。"},
+ {min:8.5,max:10,name:"高承接倾向型",desc:"在这些情境里，你展现出较强的关系承接倾向。你可能很容易为了避免冲突而答应、补偿或忍耐。值得关注的不是你太好，而是你的意愿有没有被同样认真地对待。",traits:["容易因为亏欠感而接受额外要求","可能把对方的失望理解成自己的责任","倾向于压下不满，以换取关系暂时平静"],signals:["给答应请求留一点思考时间","把“我不愿意”视为一个足够正当的理由","如果关系长期只靠你维持，可以重新评估投入"],quote:"善意不是无限额度，关系也不该只有你一个人在续费。"}
+];
+
+let current=0,answers=Array(questions.length).fill(null),resultData=null;
+const $=id=>document.getElementById(id);
+function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),1900)}
+function start(){
+ $("landing").style.display="none";$("about").style.display="none";$("quiz").style.display="block";
+ track("test_start",{test_id:"price_sensitive_friend_001"});renderQuestion();window.scrollTo({top:0,behavior:"smooth"});
+}
+function renderQuestion(){
+ const q=questions[current];
+ $("stepLabel").textContent=`QUESTION ${String(current+1).padStart(2,"0")} / ${questions.length}`;
+ $("answeredLabel").textContent=`已完成 ${answers.filter(x=>x!==null).length} / ${questions.length}`;
+ $("progressFill").style.width=`${(current/questions.length)*100}%`;
+ $("qNumber").textContent=`${String(current+1).padStart(2,"0")} — YOUR INSTINCT`;
+ $("questionText").textContent=q.q;$("options").innerHTML="";
+ q.a.forEach((item,i)=>{
+  const b=document.createElement("button");b.type="button";b.className="option"+(answers[current]===i?" selected":"");
+  const letter=document.createElement("span");letter.className="letter";letter.textContent=String.fromCharCode(65+i);
+  const txt=document.createElement("span");txt.className="option-text";txt.textContent=item[0];
+  b.append(letter,txt);b.addEventListener("click",()=>{answers[current]=i;track("question_answer",{question_number:current+1,answer_index:i});renderQuestion();});
+  $("options").appendChild(b);
+ });
+ $("prevBtn").disabled=current===0;$("nextBtn").disabled=answers[current]===null;
+ $("nextBtn").textContent=current===questions.length-1?"查看测试结果 →":"下一题 →";
+}
+function next(){if(answers[current]===null)return;if(current<questions.length-1){current++;renderQuestion()}else showResult()}
+function prev(){if(current>0){current--;renderQuestion()}}
+function showResult(){
+ const max=questions.reduce((s,q)=>s+Math.max(...q.a.map(a=>a[1])),0);
+ const raw=answers.reduce((s,a,i)=>s+questions[i].a[a][1],0);
+ const score=Math.round(raw/max*100)/10;
+ const profile=profiles.find(p=>score>=p.min&&score<=p.max)||profiles[profiles.length-1];
+ resultData={score,profile};
+ $("quiz").style.display="none";$("result").style.display="block";
+ $("scoreValue").textContent=score.toFixed(1);$("resultName").textContent=profile.name;$("resultDesc").textContent=profile.desc;
+ $("traits").innerHTML=profile.traits.map(x=>`<li>${esc(x)}</li>`).join("");
+ $("signals").innerHTML=profile.signals.map(x=>`<li>${esc(x)}</li>`).join("");
+ $("resultQuote").textContent="“"+profile.quote+"”";
+ drawShareCard();track("test_complete",{test_id:"price_sensitive_friend_001",score_band:band(score),profile:profile.name});
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function band(s){return s<2.5?"0-2.4":s<4.5?"2.5-4.4":s<6.5?"4.5-6.4":s<8.5?"6.5-8.4":"8.5-10"}
+function esc(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function drawShareCard(){
+ const c=$("shareCanvas"),ctx=c.getContext("2d"),{score,profile}=resultData;
+ ctx.fillStyle="#f3efe7";ctx.fillRect(0,0,c.width,c.height);
+ ctx.strokeStyle="#ddd5c8";ctx.lineWidth=2;ctx.strokeRect(34,34,c.width-68,c.height-68);
+ ctx.fillStyle="#292820";ctx.font="bold 22px sans-serif";ctx.fillText("关系观察室",70,100);
+ ctx.fillStyle="#a75d43";ctx.font="18px sans-serif";ctx.fillText("FRIENDSHIP FIELD NOTES  /  NO.001",70,145);
+ ctx.strokeStyle="#ddd5c8";ctx.beginPath();ctx.moveTo(70,180);ctx.lineTo(770,180);ctx.stroke();
+ ctx.fillStyle="#a75d43";ctx.font="bold 19px sans-serif";ctx.fillText("我的价格敏感型朋友吸引指数",70,250);
+ ctx.fillStyle="#a75d43";ctx.font="150px Georgia,serif";ctx.fillText(score.toFixed(1),62,435);
+ ctx.fillStyle="#777367";ctx.font="30px Georgia,serif";ctx.fillText("/ 10",390,430);
+ ctx.fillStyle="#292820";ctx.font="bold 42px sans-serif";ctx.fillText(profile.name,70,535);
+ wrapText(ctx,profile.desc,70,600,680,34,"24px sans-serif","#625e54",4);
+ ctx.strokeStyle="#ddd5c8";ctx.beginPath();ctx.moveTo(70,820);ctx.lineTo(770,820);ctx.stroke();
+ wrapText(ctx,"“"+profile.quote+"”",70,875,680,40,"italic 27px Georgia,serif","#292820",2);
+ ctx.fillStyle="#777367";ctx.font="18px sans-serif";ctx.fillText("趣味自测 · 非心理诊断 · 扫描/访问原链接再测一次",70,980);
+}
+function wrapText(ctx,text,x,y,maxWidth,lineHeight,font,color,maxLines=5){
+ ctx.font=font;ctx.fillStyle=color;let line="",lines=0;
+ for(const ch of text){const test=line+ch;if(ctx.measureText(test).width>maxWidth&&line){ctx.fillText(line,x,y+lines*lineHeight);line=ch;lines++;if(lines>=maxLines)return;}else line=test;}
+ if(line&&lines<maxLines)ctx.fillText(line,x,y+lines*lineHeight);
+}
+function resultCopy(){return `我的「价格敏感型朋友吸引指数」是 ${resultData.score.toFixed(1)}/10，关系画像：${resultData.profile.name}。\n${resultData.profile.desc}\n你也来测测：${location.href}`}
+async function copyResult(){
+ try{await navigator.clipboard.writeText(resultCopy());toast("结果文案已复制");track("result_copy",{profile:resultData.profile.name})}
+ catch(e){toast("复制失败，请尝试分享按钮")}
+}
+function downloadCard(){
+ const a=document.createElement("a");a.download="关系观察室-价格敏感型朋友测试结果.png";a.href=$("shareCanvas").toDataURL("image/png");a.click();
+ track("result_download",{profile:resultData.profile.name});toast("结果图片已生成");
+}
+async function shareResult(){
+ const canvas=$("shareCanvas");
+ try{
+  if(navigator.canShare&&navigator.share){
+   const blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/png"));
+   const file=new File([blob],"relationship-result.png",{type:"image/png"});
+   if(navigator.canShare({files:[file]})){await navigator.share({title:"我的关系互动画像",text:"来测测你的价格敏感型朋友吸引指数",files:[file]});}
+   else await navigator.share({title:"我的关系互动画像",text:resultCopy(),url:location.href});
+  }else{await navigator.clipboard.writeText(resultCopy());toast("分享文案已复制，去社交平台发布吧")}
+  track("result_share",{profile:resultData.profile.name});
+ }catch(e){if(e.name!=="AbortError")toast("分享暂不可用，可以保存图片后手动分享")}
+}
+function again(){
+ current=0;answers=Array(questions.length).fill(null);resultData=null;
+ $("result").style.display="none";$("landing").style.display="block";$("about").style.display="block";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+$("startBtn").addEventListener("click",start);$("nextBtn").addEventListener("click",next);$("prevBtn").addEventListener("click",prev);
+$("downloadBtn").addEventListener("click",downloadCard);$("shareBtn").addEventListener("click",shareResult);
+$("copyBtn").addEventListener("click",copyResult);$("againBtn").addEventListener("click",again);
+</script>
+</body>
+</html>
